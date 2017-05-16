@@ -1,0 +1,25 @@
+{
+  "name": "cagey-protest",
+  "version": "0.1.0",
+  "description": "Mad Libbs Karaoke",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Schultz816/Cagey-Protest.git"
+  },
+  "author": "Corey Juila Marc Miguel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Schultz816/Cagey-Protest/issues"
+  },
+  "homepage": "https://github.com/Schultz816/Cagey-Protest#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mysql": "^2.13.0",
+    "sequelize": "^3.30.4"
+  }
+}
