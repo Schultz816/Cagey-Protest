@@ -6,6 +6,7 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
+var mysql = require("mysql");
 
 // Sets up the Express App
 // =============================================================
@@ -26,7 +27,7 @@ app.use(express.static("./public"));
 
 // Routes =============================================================
 
-require("./YOUR ROUTE NAME.js")(app);
+require("./routes/html-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
 db.sequelize.sync({ force: true }).then(function() {
