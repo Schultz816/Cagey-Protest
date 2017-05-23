@@ -1,6 +1,12 @@
 node_modules/
 
+
 config.json
+
 
 .idea
 
+
+user_relation.js
+user.js
+event.js
