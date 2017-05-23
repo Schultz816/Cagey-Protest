@@ -1,0 +1,19 @@
+{
+  "name": "project2-cageyprotest-js",
+  "version": "1.0.0",
+  "description": "julia saucedo branch",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Schultz816/Cagey-Protest.git"
+  },
+  "author": "jsaucedo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Schultz816/Cagey-Protest/issues"
+  },
+  "homepage": "https://github.com/Schultz816/Cagey-Protest#readme"
+}
