@@ -3,9 +3,19 @@
  */
 
 module.exports = (sequelize, DataTypes) => {
-  return sequelize.define("chore", {
+  const Chores = sequelize.define("chores", {
     name: { type: DataTypes.STRING, allowNull: false},
-    points_worth: { type: DataTypes.INTEGER, allowNull: false},
-    created: { type: DataTypes.DATEONLY, defaultValue: DataTypes.NOW}
+    pointsWorth: { type: DataTypes.INTEGER, allowNull: false},
+    // created: { type: DataTypes.DATEONLY, defaultValue: DataTypes.NOW}
+  },
+  {
+    classMethods: {
+      associate: function (models) {
+        Chores.hasMany(models.events, {
+          onDelete: "cascade"
+        });
+      }
+    }
   });
+ return Chores;
 };
