@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/Schultz816/Cagey-Protest/issues"
   },
-  "homepage": "https://github.com/Schultz816/Cagey-Protest#readme"
+  "homepage": "https://github.com/Schultz816/Cagey-Protest#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "mysql": "^2.13.0",
+    "sequelize": "^3.30.4"
+  }
 }
