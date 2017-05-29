@@ -15,6 +15,7 @@ var $passwordInput = $("#password")
             return;
         }
 
+
         // Make a newBook object
         var newUser = {
             username: $usernameInput.val().trim(),
@@ -22,15 +23,24 @@ var $passwordInput = $("#password")
             password: $passwordInput.val().trim()
         };
 
+
+
         console.log(newUser)
 
+        if (localStorage.getItem("username")) {
+            console.log("it's here")
+        } else (
+            console.log("not here yet")
+        );
+
+        localStorage.setItem("username", newUser.username);
         // Send an AJAX POST-request with jQuery
-        $.post("/api/user", newUser)
+        $.post("/api/users", newUser)
         // On success, run the following code
             .done(function (data) {
                 // Log the data we found
                 console.log(data);
-                window.location.href = "/api/user"
+                window.location.href = "/api/testHome"
             });
 
         // Empty each input box by replacing the value with an empty string

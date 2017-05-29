@@ -6,8 +6,8 @@ var db = require("../models");
 module.exports = function(app) {
 
     // POST route for saving a new post
-    app.post("/api/user", function(req, res) {
-        db.User.create({
+    app.post("/api/users", function(req, res) {
+        db.Users.create({
             username: req.body.username,
             email: req.body.email
         }).then(function(dbUser) {
@@ -15,7 +15,7 @@ module.exports = function(app) {
         });
     });
 
-    app.get("/api/user", function(req, res) {
+    app.get("/api/users", function(req, res) {
         db.User.findAll({}).then(function(dbUser) {
             res.json(dbUser);
         });
