@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     // {
     //   classMethods: {
     //     associate: function (models) {
-    //       Rewards.hasMany(models.events, {
+    //       Users.hasMany(models.events, {
     //         onDelete: "cascade"
     //       });
     //     }

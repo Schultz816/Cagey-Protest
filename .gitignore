@@ -1,7 +1,7 @@
 node_modules/
 
 
-config.json
+config/config.json
 
 
 .idea
@@ -10,3 +10,4 @@ config.json
 
 server2.js
 testInput.js
+.gitignore

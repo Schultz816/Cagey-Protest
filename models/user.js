@@ -25,6 +25,9 @@ module.exports = (sequelize, DataTypes) => {
           as: 'Parent',
           foreignKey : 'parentId',
           onDelete: "cascade"
+        }),
+        Users.hasMany(models.rewards, {
+          onDelete: "cascade"
         });
       }
     }
