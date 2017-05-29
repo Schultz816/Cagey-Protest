@@ -20,7 +20,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // Static directory
 app.use(express.static("./public"));
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
 // Override with POST having ?_method=DELETE
 //app.use(methodOverride("_method")); // might not use
 
@@ -32,7 +32,7 @@ app.set("view engine", "handlebars");
 
 // Routes - not set up yet =============================================================
 
-// require("./routes/html-routes.js")(app);
+require("./routes/html-routes.js")(app);
 // require("./routes/post-api-routes.js")(app);
 // require("./routes/author-api-routes.js")(app);
 
