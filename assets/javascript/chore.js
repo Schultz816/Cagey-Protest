@@ -1,24 +1,24 @@
 var topics = ["Wash Dishes", "Clean Room", "Laundry", "Vaccum", "Walk the Dog", "Clean Bathroom", "Water Plants",];
 // creates buttons from above var
-installAnimalButtons();
+installChoreButtons();
 
 
-$('#addAnimal').on('click', function() {
-    var animalEntered = $('#animalInput').val().trim();
-    topics.push(animalEntered);
-    $('#animalInput').val('');
-    installAnimalButtons();
+$('#addChore').on('click', function() {
+    var choreEntered = $('#choreInput').val().trim();
+    topics.push(choreEntered);
+    $('#choreInput').val('');
+    installChoreButtons();
 
     return false;
 });
 
 
-function installAnimalButtons() {
-     $('#animalButtons').empty();
+function installChoreButtons() {
+     $('#choreButtons').empty();
 
      for (var i = 0; i < topics.length; i++) {
          var button = $('<button>').addClass('btn btn-primary btn-lg btn-block');
-         button.attr('data-animal', topics[i]).html(topics[i]);
-         $('#animalButtons').append(button);
+         button.attr('data-chore', topics[i]).html(topics[i]);
+         $('#choreButtons').append(button);
     }
 }
