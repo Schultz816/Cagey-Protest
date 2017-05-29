@@ -1,13 +1,8 @@
 node_modules/
 
-
 config/config.json
-
 
 .idea
 
-
-
-server2.js
-testInput.js
 .gitignore
+
