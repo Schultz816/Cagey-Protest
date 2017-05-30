@@ -9,9 +9,9 @@ module.exports = (sequelize, DataTypes) => {
     //parent_id: { type: DataTypes.INTEGER, allowNull: true},
     username: { type: DataTypes.STRING, allowNull: false, unique: true,
       validate: {min: 3}},
-      email: { type: DataTypes.STRING, allowNull: false, unique: true,
+    email: { type: DataTypes.STRING, allowNull: false, unique: true,
       validate: {isEmail: true} },
-      password: { type: DataTypes.STRING, allowNull: false /*validate: {min: 8}*/ },
+    password: { type: DataTypes.STRING, allowNull: false /*validate: {min: 8}*/ },
     pointsEarned: { type: DataTypes.INTEGER, defaultValue: 0 }
   },
   {
