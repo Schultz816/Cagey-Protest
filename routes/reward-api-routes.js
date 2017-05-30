@@ -1,3 +1,5 @@
+ // Created by Julia on 5/28/2017.
+
 var db = require("../models");
 
 module.exports = function(app) {

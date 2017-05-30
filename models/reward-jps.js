@@ -1,3 +1,6 @@
+// Created by Julia on 5/28/2017.
+
+
 module.exports = function(sequelize, DataTypes) {
 	var Reward = sequelize.define('reward', {
 		name: {
