@@ -26,7 +26,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // Static directory
 app.use(express.static("./public"));
 
-// <<<<<<< HEAD
+
 // Override with POST having ?_method=DELETE
 //app.use(methodOverride("_method")); // might not use
 
