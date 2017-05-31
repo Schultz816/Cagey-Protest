@@ -1,44 +1,60 @@
 
+//run express app
 const express = require("express");
-const bodyParser = require("body-parser");
-const expressHandlebars = require("express-handlebars");
-//const methodOverride = require("method-override"); // might not need
-
 const app = express();
+//required for authentication
+const passport   = require('passport')
+const session    = require('express-session')
+//parse request bodies into JSON
+const bodyParser = require("body-parser");
+//handles environment variables
+const env = require('dotenv').load();
+const exphbs = require("express-handlebars");
+
+//set up port
 const PORT = process.env.PORT || 8080;
 
-// Requiring our models for syncing
-const db = require("./models");
+//requiring our models for syncing
+const db = require("./app/models");
 
-
-// Sets up the Express app to handle data parsing
+// Sets up the express app to handle data parsing
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
+// For Passport
+app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
 // Static directory
 app.use(express.static("./public"));
 
-// <<<<<<< HEAD
-// Override with POST having ?_method=DELETE
-//app.use(methodOverride("_method")); // might not use
-
-// Set Handlebars.
-var exphbs = require("express-handlebars");
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+// Set Handlebars
+app.set('views', './app/views')
+app.engine("handlebars", exphbs({
+    extname: '.handlebars'
+}));
+app.set("view engine", ".handlebars");
 
 // Routes - not set up yet =============================================================
 
-require("./routes/html-routes.js")(app);
-// require("./routes/post-api-routes.js")(app);
-// require("./routes/author-api-routes.js")(app);
+require("./app/routes/html-routes.js")(app);
+require("./app/routes/api-routes.js")(app);
+require('./app/routes/auth.js')(app, passport);
+require('./app/config/passport/passport.js')(passport, db.user);
 
 // Syncing our sequelize models and then starting our express app
 db.sequelize.sync({ force: true }).then(function() {
+
+  console.log('Nice! Database looks fine')
+
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
-});
+}).catch(function(err) {
+
+    console.log(err, "Something went wrong with the Database Update!")
+
+});;

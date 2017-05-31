@@ -1,4 +1,4 @@
-var db = require("../models");
+var db = require("../models/index");
 
 module.exports = function(app) {
 	app.get("/api/rewards", function(req, res) {
