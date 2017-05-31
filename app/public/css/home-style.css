@@ -1,0 +1,11 @@
+/*Created by Julia 5/29/2017
+Purpose: special style for home.html (admin view)*/
+
+
+body {
+    /*background-image: url("../images/backgrounds/elastoplast.png");*/
+    background-color: gray;
+}
+h1 {
+	color: red;
+}
