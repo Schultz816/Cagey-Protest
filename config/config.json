@@ -1,13 +1,8 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": null,
     "database": "tasko_db",
-=======
-    "password": ",
-    "database": "devdb1",
->>>>>>> ca1493373a7b4f2bf64dbc41fb79f856bb7d3876
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
