@@ -49,7 +49,7 @@ require("./app/routes/html-routes.js")(app);
 require("./app/routes/api-routes.js")(app);
 require('./app/routes/auth.js')(app, passport);
 require('./app/config/passport/passport.js')(passport, db.user);
-require("./routes/reward-api-routes.js")(app);
+require("./app/routes/reward-api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
 db.sequelize.sync({ force: true }).then(function() {
