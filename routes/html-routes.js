@@ -24,4 +24,12 @@ module.exports = function(app) {
     app.get("/rewards", function(req, res) {
         res.sendFile(path.join(__dirname, "../public/test-reward.html"));
     });
+
+    app.get("/home/:id", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/admin-home.html"));
+    });
+
+    app.get("/profile/:id", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/user-home.html"));
+    });
 };
