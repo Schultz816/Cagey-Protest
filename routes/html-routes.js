@@ -22,7 +22,7 @@ module.exports = function(app) {
     });
 
     app.get("/rewards", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/test-reward.html"));
+        res.sendFile(path.join(__dirname, "../public/reward.html"));
     });
 
     app.get("/home", function(req, res) {
@@ -31,5 +31,9 @@ module.exports = function(app) {
 
     app.get("/profile", function(req, res) {
         res.sendFile(path.join(__dirname, "../public/profile.html"));
+    });
+
+    app.get("/chore", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/chore.html"));
     });
 };
