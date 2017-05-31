@@ -25,11 +25,11 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/test-reward.html"));
     });
 
-    app.get("/home/:id", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/admin-home.html"));
+    app.get("/home", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/home.html"));
     });
 
-    app.get("/profile/:id", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/user-home.html"));
+    app.get("/profile", function(req, res) {
+        res.sendFile(path.join(__dirname, "../public/profile.html"));
     });
 };
