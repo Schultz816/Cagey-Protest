@@ -2,7 +2,7 @@
 
 
 module.exports = function(sequelize, DataTypes) {
-	var Reward = sequelize.define('reward', {
+	var Reward = sequelize.define('rewards', {
 		name: {
 			type: DataTypes.STRING,
 			allowNull: false
