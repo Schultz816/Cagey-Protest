@@ -43,8 +43,7 @@ app.engine("handlebars", exphbs({
     extname: '.handlebars'
 }));
 app.set("view engine", ".handlebars");
-=======
-
+=====
 // Override with POST having ?_method=DELETE
 //app.use(methodOverride("_method")); // might not use
 >>>>>>> julia2
