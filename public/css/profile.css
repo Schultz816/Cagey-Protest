@@ -1,11 +1,12 @@
-/*Created by Julia 5/29/2017
-Purpose: special style for home.html (admin view)*/
+/*Created by Julia 5/30/2017
+Purpose: special style for profile.html*/
 
 
 body {
     background-image: url("../images/backgrounds/elastoplast.png");
     /*background-color: black;*/
 }
+
 h1 {
 	color: red;
 }

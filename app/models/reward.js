@@ -5,14 +5,10 @@
 module.exports = (sequelize, DataTypes) => {
   const Rewards = sequelize.define("rewards", {
       name: { type: DataTypes.STRING, allowNull: false},
-      redeemAmount: { type: DataTypes.INTEGER, allowNull: false},
-      description: {
-        type: DataTypes.TEXT,
-        allowNull: false,
-        len: [1]
-      }
+      // redeemAmount: { type: DataTypes.INTEGER, allowNull: false},
+      pointsworth: { type: DataTypes.INTEGER, allowNull: false}
       // created: { type: DataTypes.DATEONLY, defaultValue: DataTypes.NOW}
-    }
+    // }
     // {
     //   classMethods: {
     //     associate: function (models) {
@@ -21,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     //       });
     //     }
     //   }
-    // }
+    }
     );
   return Rewards;
 };

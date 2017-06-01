@@ -8,15 +8,16 @@ var db = require("../models");
 
 module.exports = function(app) {
 	app.get("/api/rewards", function(req, res) {
-		db.Reward.findAll({
+		db.rewards.findAll({
 			include: [db.Post]
 		}).then(function(dbReward) {
 			res.json(dbReward);
 		});
+		// res.send("reward-api is working!");
 	});
 
 	app.get("/api/rewards/:id", function(req, res) {
-		db.Reward.findOne({
+		db.rewards.findOne({
 			where: {
 				id: req.params.id
 			},
@@ -27,13 +28,13 @@ module.exports = function(app) {
 	});
 
 	app.post("/api/rewards", function(req, res) {
-		db.Reward.create(req.body).then(function(dbReward) {
+		db.rewards.create(req.body).then(function(dbReward) {
 			res.json(dbReward);
 		});
 	});
 
 	app.delete("/api/rewards/:id", function(req, res) {
-		db.Reward.destroy({
+		db.rewards.destroy({
 			where: {
 				id: req.params.id
 			}
