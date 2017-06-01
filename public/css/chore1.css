@@ -1,0 +1,25 @@
+body  {
+	background-color: gray;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+
+#column1  {
+	border-radius: 25px;
+	border-style: solid;
+	padding: 10px;
+}
+
+#column2  {
+	border-radius: 25px;
+	border-style: solid;
+	padding: 10px;
+}
+
+#column3  {
+	border-radius: 25px;
+	border-style: solid;
+	padding: 10px;
+}

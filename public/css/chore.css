@@ -1,42 +1,25 @@
 body  {
 	background-color: gray;
-}
-
-
-#column1	{
-	background-color: green;
-}
-
-#column2	{
-	background-color: yellow;
-}
-
-#column3	{
-	background-color: red;
-}
-
-#heads	{
-	padding:  20px;
-	background-color: gray;
-}
-
-#chore {
 	font-family: "Times New Roman", Times, serif;
 	font-size: 20px;
 	font-weight: bold;
-	background-color: green;
 }
 
-#assigned {
-	font-family: "Times New Roman", Times, serif;
-	font-size: 20px;
-	font-weight: bold;
-	background-color: yellow;
+
+#column1  {
+	border-radius: 25px;
+	border-style: solid;
+	padding: 10px;
 }
 
-#reward {
-	font-family: "Times New Roman", Times, serif; 
-	font-size: 20px;
-	font-weight: bold;
-	background-color: red;
+#column2  {
+	border-radius: 25px;
+	border-style: solid;
+	padding: 10px;
+}
+
+#column3  {
+	border-radius: 25px;
+	border-style: solid;
+	padding: 10px;
 }
