@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<link rel="stylesheet" type="text/css" href="public/css/chore.css">
+
+
+  
+  <meta charset="UTF-8">
+  <title>Chores</title>
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+
+
+<body onload="firstMethod()" waid71fa0d88-5390-4b5b-a2f4-e45fa93d85e2="SA password protect entry checker">
+
+
+<div class="container">
+
+    <!-- Jumbotron for Title -->
+    <div class="jumbotron" style="background-color: #20315A ; color: white;">
+      <h1 class="text-center"><strong><i class="fa fa-usd" aria-hidden="true"></i> Chore List</strong></h1>
+    </div>
+
+<!--  inline button to add new chores -->
+
+<form class="form-inline" id="create">
+        <label class="sr-only" for="inlineFormInput">Chore Assignment</label>
+<label class="mr-sm-2" for="inlineFormCustomSelect">New Chore</label>
+
+  <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" placeholder="New Chore">
+  <label class="mr-sm-2" for="inlineFormCustomSelect">Point Value</label>
+
+<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput1" placeholder="Example 100">
+
+  
+  
+  <button type="button" class="btn btn-primary" onclick="createInput()">Add Chore</button>
+
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+    <div class="input-group">
+      <!-- <div class="input-group-addon">$</div> -->
+      <input type="text" class="form-control" id="placeholder" placeholder="Total Points">
+      <!-- <div class="input-group-addon">.00</div> -->
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" id="points">Transfer Points</button>
+
+<p></p>
+
+
+
+  <!--  new container test -->
+<div class="container-fluid">
+
+
+  
+  
+  <div class="row">
+    <div class="col-sm-4" id="column1">CHORES
+      		  <!--button type="button" class="btn btn-primary btn-lg btn-block" data-amount="200" value="Add 200" id="200">Mow Lawn  +200</button>
+              <button type="button" class="btn btn-secondary btn-lg btn-block" data-amount="100" value="Add 100" id="100">Wash Dishes  +100</button>
+              <button type="button" class="btn btn-primary btn-lg btn-block" data-amount="100" value="Add 100" id="100">Clean Room  +100</button>
+              <button type="button" class="btn btn-secondary btn-lg btn-block" data-amount="200" value="Add 200" id="200">Laundry  +200</button>
+              <button type="button" class="btn btn-primary btn-lg btn-block" data-amount="100" value="Add 100" id="100">Vaccum  +100</button>
+              <button type="button" class="btn btn-secondary btn-lg btn-block" data-amount="100" value="Add 100" id="100">Walk the Dog +100</button>
+              <button type="button" class="btn btn-primary btn-lg btn-block" data-amount="200" value="Add 200" id="200">Clean Bathroom  +200</button>
+              <button type="button" class="btn btn-secondary btn-lg btn-block" data-amount="200" value="Add 200" id="100">Water Plants +100</button>
+              <button type="button" class="btn btn-primary btn-lg btn-block" onclick="createInput();" >Insert after</button> -->
+    </div>
+    <div class="col-sm-4" id="column2">ASSIGNMENTS
+
+    <!-- <button type="button" class="btn btn-primary btn-lg btn-block" id="assign">Assign</button> -->
+      
+    </div>
+    <div class="col-sm-4" id="column3">COMPLETED
+    </div>
+  </div>
+  <p></p>
+  <button type="button" class="btn btn-primary btn-lg btn-block" id="assign">ASSIGN CHORES</button>
+  <p></p>
+  <button type="button" class="btn btn-primary btn-lg btn-block" id="assign" onclick="window.location.reload()">RESET</button>
+</div>
+
+
+<!-- jQuery JS -->
+  <script src="https://code.jquery.com/jquery-3.2.0.js" integrity="sha256-wPFJNIFlVY49B+CuAIrDr932XSb6Jk3J1M22M3E2ylQ=" crossorigin="anonymous"></script>
+
+  <!-- Code to the JavaScript File -->
+	<head><script src="public/js/chore.js"></script>
+    
+
+</form>
+</div>
+</body>
+</html>
