@@ -45,7 +45,7 @@ app.set("view engine", ".handlebars");
 
 // Routes - not set up yet =============================================================
 
-require("./app/routes/html-routes.js")(app);
+// require("./app/routes/html-routes.js")(app);
 require("./app/routes/api-routes.js")(app);
 require('./app/routes/auth.js')(app, passport);
 require('./app/config/passport/passport.js')(passport, db.user);
