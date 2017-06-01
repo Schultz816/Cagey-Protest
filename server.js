@@ -36,17 +36,14 @@ app.use(passport.session()); // persistent login sessions
 // Static directory
 app.use(express.static("./public"));
 
-<<<<<<< HEAD
+
 // Set Handlebars
 app.set('views', './app/views')
 app.engine("handlebars", exphbs({
     extname: '.handlebars'
 }));
 app.set("view engine", ".handlebars");
-=====
-// Override with POST having ?_method=DELETE
-//app.use(methodOverride("_method")); // might not use
->>>>>>> julia2
+
 
 // Routes - not set up yet =============================================================
 

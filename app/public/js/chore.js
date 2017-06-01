@@ -1,4 +1,4 @@
-var topics = ["Wash Dishes", "Clean Room", "Laundry", "Vaccum", "Walk the Dog", "Clean Bathroom", "Water Plants",];
+var topics = ["Wash Dishes", "Clean Room", "Laundry", "Vacuum", "Walk the Dog", "Clean Bathroom", "Water Plants",];
 // creates buttons from above var
 installAnimalButtons();
 
