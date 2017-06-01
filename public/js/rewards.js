@@ -6,6 +6,7 @@ $(document).ready(function () {
 	var $rewardInput = $("#reward-name");
 	var $rewardList = $("tbody");
 	var $rewardContainer = $("#reward-container");
+	var $pointsWorth = $("#pointsworth");
 
 	// Adding event listeners to the form to create a new object, and the button to delete a reward
 	$(document).on("submit", "#reward-form", handleRewardFormSubmit);
@@ -19,13 +20,15 @@ $(document).ready(function () {
 		alert("RewardSubmit working!");
 		event.preventDefault();
 		// Don't do anything if the reward fields haven't been filled out
-		if (!$rewardInput.val().trim().trim()) {
+		if (!$rewardInput.val().trim().trim() && !$pointsWorth.val().trim().trim()) {
 			return;
 			alert("d'oh! You didn't complete the fields. Try again");
 		}
+			console.log("rewardinput " + JSON.stringify($pointsWorth));
 			// Calling the upsertReward function and passing in the value of the $rewardInput
 			upsertReward({
-				name: $rewardInput.val().trim()
+				name: $rewardInput.val().trim(),
+				// pointsworth: $pointsWorth.val().trim()
 			});
 	}
 
