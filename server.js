@@ -63,6 +63,6 @@ db.sequelize.sync({ force: true }).then(function() {
   });
 }).catch(function(err) {
 
-    console.log(err, "Something went wrong with the Database Update!")
+    console.log(err, "Something went wrong with the Database Update!");
 
-});;
+});

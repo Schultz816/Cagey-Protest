@@ -1,6 +1,6 @@
 // Created by Julia 5/27/2017
 // JS file pertaining to reward.html page
-
+/*
 $(document).ready(function () {
   // Getting references to the name input and reward container, as well as the table body
 	var $rewardInput = $("#reward-name");
@@ -93,4 +93,4 @@ function handleDeleteButtonPress() {
 	.done(getRewards)
 }
 
-}); // end document.ready
+}); // end document.ready*/

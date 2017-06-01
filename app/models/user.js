@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const User = sequelize.define("user", {
+    const User = sequelize.define("users", {
 
         id: {
             autoIncrement: true,
@@ -10,12 +10,13 @@ module.exports = (sequelize, DataTypes) => {
 
         firstname: {
             type: DataTypes.STRING,
-            notEmpty: true
+            notEmpty: true,
+            validate: {min: 1}
         },
 
         lastname: {
             type: DataTypes.STRING,
-            notEmpty: true
+            notEmpty: false
         },
 
         username: {
@@ -30,7 +31,8 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             validate: {
                 isEmail: true
-            }
+            },
+            unique: true
         },
 
         password: {
@@ -46,12 +48,32 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.ENUM('active', 'inactive'),
             defaultValue: 'active'
         },
+        pointsWorth: {
+            type: DataTypes.INTEGER,
+            defaultValue: 0
+        }
 
-
-    });
-
+    },
+    {
+        classMethods: {
+          associate: function (models) {
+            // When an user is deleted, so are any related events and child-users
+            User.hasMany(models.events, {
+              onDelete: "cascade"
+            }),
+              User.hasMany(models.users, {
+                as: 'Parent',
+                foreignKey : 'parentId',
+                onDelete: "cascade"
+              }),
+              User.hasMany(models.rewards, {
+                onDelete: "cascade"
+              });
+          }
+        }
+    }
+    );
     return User;
-
 };
 
 
