@@ -1,35 +1,35 @@
  // Created by Julia on 5/28/2017.
 
-var db = require("../models");
+var Reward = require("../models/reward.js");
 
 module.exports = function(app) {
 	app.get("/api/rewards", function(req, res) {
-		db.Reward.findAll({
-			include: [db.Post]
+		Reward.findAll({
+			// include: [db.Post]
 		}).then(function(dbReward) {
 			res.json(dbReward);
 		});
 	});
 
 	app.get("/api/rewards/:id", function(req, res) {
-		db.Reward.findOne({
+		Reward.findOne({
 			where: {
 				id: req.params.id
 			},
-			include: [db.Post]
+			// include: [db.Post]
 		}).then(function(dbReward) {
 			res.json(dbReward);
 		});
 	});
 
 	app.post("/api/rewards", function(req, res) {
-		db.Reward.create(req.body).then(function(dbReward) {
+		Reward.create(req.body).then(function(dbReward) {
 			res.json(dbReward);
 		});
 	});
 
 	app.delete("/api/rewards/:id", function(req, res) {
-		db.Reward.destroy({
+		Reward.destroy({
 			where: {
 				id: req.params.id
 			}
