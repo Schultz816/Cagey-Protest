@@ -21,5 +21,11 @@ module.exports = function(app) {
         });
     });
 
+    app.post("/api/chores", function(req, res) {
+        db.Chore.save({}).then(function(err, data) {
+            res.json(data);
+        })
+    })
+
 };
 

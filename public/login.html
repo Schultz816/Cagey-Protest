@@ -5,46 +5,50 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>login</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="js/addUser.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    
 </head>
 <body>
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-6 col-lg-offset-3">
+        <div  id="content">
             <form action="/data">
-                <div class="imgcontainer">
-                    <img src="../images/chores.jpg" alt="Avatar" class="avatar">
-                </div>
+                <!--<div class="imgcontainer">-->
+                <!--    <img src="../images/chores.jpg" alt="Avatar" class="avatar">-->
+                <!--</div>-->
+                <h1>Tasko!</h1>
 
-                <label><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
+                <!--<label><b>Username</b></label>-->
+                <input type="text" placeholder="Enter Username" name="uname" id="usertext" required>
 
-                <label><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
+                <!--<label><b>Password</b></label>-->
+                <input type="password" placeholder="Enter Password" name="psw" required><br/>
 
-                <button type="submit">Login</button>
+                <button class="btn btn-danger" type="submit">Login</button>
 
                 <!-- Button to open the modal -->
-                <button onclick="document.getElementById('id01').style.display='block'">Sign Up</button>
+                <button class="btn btn-danger"  onclick="document.getElementById('id01').style.display='block'">Sign Up</button>
 
-                <input type="checkbox" checked="checked"> Remember me
+                <input type="checkbox" checked="checked"> Remember me <br/>
 
-                <div style="background-color:#f1f1f1">
-                    <button type="button" class="cancelbtn">Cancel</button>
-                    <span class="psw">Forgot <a href="#">password?</a></span>
+                <div class="row psw-wrapper" style="background-color:#f1f1f1">
+                    <button type="button" class="btn btn-danger cancelbtn">Cancel</button>
+                     <a href="#"> Forgot password?</a>
                 </div>
 
             </form>
         </div>
     </div>
 </div>
+
 
 <!--MODAL SIGN UP-->
 
@@ -106,6 +110,7 @@
         </div>
     </form>
 </div>
+
 
 </body>
 </html>
