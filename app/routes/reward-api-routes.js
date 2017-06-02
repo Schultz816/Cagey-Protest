@@ -13,7 +13,7 @@ module.exports = function(app) {
 		}).then(function(dbReward) {
 			res.json(dbReward);
 		});
-		// res.send("reward-api is working!");
+		res.send("reward-api is working!");
 	});
 
 	app.get("/api/rewards/:id", function(req, res) {
