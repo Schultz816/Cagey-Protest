@@ -20,7 +20,7 @@ const exphbs = require("express-handlebars");
 const PORT = process.env.PORT || 8080;
 
 //requiring our models for syncing
-const db = require("./app/models");
+const db = require("./app/models/index");
 
 // Sets up the express app to handle data parsing
 app.use(bodyParser.json());

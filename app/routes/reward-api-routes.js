@@ -3,7 +3,7 @@
 // =======
  // Created by Julia on 5/28/2017.
 
-var db = require("../models");
+var db = require("../models/index");
 // julia2:routes/reward-api-routes.js
 
 module.exports = function(app) {
@@ -13,7 +13,7 @@ module.exports = function(app) {
 		}).then(function(dbReward) {
 			res.json(dbReward);
 		});
-		// res.send("reward-api is working!");
+		res.send("reward-api is working!");
 	});
 
 	app.get("/api/rewards/:id", function(req, res) {

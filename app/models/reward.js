@@ -1,7 +1,3 @@
-/**
- * Created by Miguel on 5/24/2017.
- */
-
 module.exports = (sequelize, DataTypes) => {
   const Rewards = sequelize.define("rewards", {
       name: { type: DataTypes.STRING, allowNull: false},
