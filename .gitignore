@@ -1,11 +1,11 @@
 node_modules/
 
-app/config/config.json
+
 
 .idea
 
 .env
 
-.gitignore
+
 
 
