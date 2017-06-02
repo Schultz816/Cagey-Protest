@@ -22,6 +22,9 @@ const PORT = process.env.PORT || 8080;
 //requiring our models for syncing
 const db = require("./app/models/index");
 
+//require path
+var path = require("path");
+
 // Sets up the express app to handle data parsing
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -38,17 +41,20 @@ app.use(express.static("./public"));
 
 
 // Set Handlebars
-app.set('views', './app/views')
-app.engine("handlebars", exphbs({
-    extname: '.handlebars'
-}));
-app.set("view engine", ".handlebars");
+// app.set('views', './app/views')
+// app.engine("handlebars", exphbs({
+//     defaultLayout: "main",
+//     extname: 'handlebars'
+// }));
+// app.set("view engine", "handlebars");
+
+app.set('views', path.join(__dirname, 'views/'));
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 
-// Routes - not set up yet =============================================================
 
-// require("./app/routes/html-routes.js")(app);
-// require("./app/routes/api-routes.js")(app);
+// ROUTES
 require('./app/routes/auth.js')(app, passport);
 require('./app/config/passport/passport.js')(passport, db.user);
 require("./app/routes/reward-api-routes.js")(app);

@@ -1,7 +1,3 @@
-/**
- * Created by Miguel on 5/21/2017.
- */
-
 module.exports = (sequelize, DataTypes) => {
   const Chores = sequelize.define("chores", {
     name: { type: DataTypes.STRING, allowNull: false},

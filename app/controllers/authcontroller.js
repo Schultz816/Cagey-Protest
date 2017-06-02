@@ -30,21 +30,10 @@ exports.chore = function(req, res) {
     res.render('chore');
 }
 
-//ADMIN profile
+//profile
 exports.profile = function(req, res) {
     res.render('profile');
 }
-
-//USER profile
-exports.userProfile = function(req, res) {
-    res.render('userProfile');
-}
-
-//adminPage
-exports.adminPage = function(req, res) {
-    res.render('adminPage');
-}
-
 
 //logout
 exports.logout = function(req, res) {
