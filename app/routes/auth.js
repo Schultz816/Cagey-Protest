@@ -22,7 +22,7 @@ module.exports = function(app, passport) {
 
     app.get('/profile', isLoggedIn, authController.profile);
 
-    app.get('/logout', authController.signin);
+    app.get('/logout', authController.logout);
 
     app.post('/signin', passport.authenticate('local-signin', {
             successRedirect: '/dashboard',
