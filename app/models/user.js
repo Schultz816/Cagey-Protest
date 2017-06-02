@@ -47,6 +47,9 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: 'active'
         },
 
+        group: {
+            type: DataTypes.STRING
+        }
 
     });
 

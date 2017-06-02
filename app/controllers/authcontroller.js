@@ -1,11 +1,16 @@
 var exports = module.exports = {}
 
-//sign up
+//ADMIN sign up
 exports.signup = function(req, res) {
     res.render('signup');
 }
 
-//sign in
+//USER sign up
+exports.userSignup = function(req, res) {
+    res.render('userSignup');
+}
+
+//GENERAL sign in
 exports.signin = function(req, res) {
     res.render('signin');
 }
@@ -25,10 +30,21 @@ exports.chore = function(req, res) {
     res.render('chore');
 }
 
-//profile
+//ADMIN profile
 exports.profile = function(req, res) {
     res.render('profile');
 }
+
+//USER profile
+exports.userProfile = function(req, res) {
+    res.render('userProfile');
+}
+
+//adminPage
+exports.adminPage = function(req, res) {
+    res.render('adminPage');
+}
+
 
 //logout
 exports.logout = function(req, res) {

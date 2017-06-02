@@ -54,7 +54,7 @@ require('./app/config/passport/passport.js')(passport, db.user);
 require("./app/routes/reward-api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({}).then(function() {
 
   console.log('Nice! Database looks fine')
 
