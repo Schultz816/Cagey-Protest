@@ -1,6 +1,7 @@
-//load bcrypt
+//load bcrypt for password hashing
 var bCrypt = require('bcrypt-nodejs');
 
+//make this stuff accessible to other parts of the application
 module.exports = function(passport, user) {
 
     //initialize the passport-local strategy and user model
