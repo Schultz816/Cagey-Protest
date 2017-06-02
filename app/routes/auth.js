@@ -45,27 +45,32 @@ module.exports = function (app, passport) {
             failureRedirect: '/signup'
         }
     ));
-    //add rewards
-    app.get('/reward', isLoggedIn, authController.reward);
-    //add chores
-    app.get('/chore', isLoggedIn, authController.chore);
-
-
-    //ADMIN dashboard
+    //add rewards GET
+    app.get('/reward',
+        isLoggedIn,
+        needsGroup('admin'),
+        authController.reward);
+    //add chores GET
+    app.get('/chore',
+        isLoggedIn,
+        needsGroup('admin'),
+        authController.chore);
+    //ADMIN dashboard GET
     app.get('/dashboard',
         isLoggedIn,
         needsGroup('admin'),
         authController.dashboard
     );
 
-
-
+    //AUTHENTICATION AND REDIRECTION
+    //****************
+    //testing whether logged in
     function isLoggedIn(req, res, next) {
         if (req.isAuthenticated())
             return next();
         res.redirect('/signin');
     }
-
+    //checking permissions for routes
     function needsGroup(group) {
         return function (req, res, next) {
             if (req.user && req.user.group === group)
