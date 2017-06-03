@@ -41,8 +41,8 @@ module.exports = function (app, passport) {
     app.get('/userSignup', authController.userSignup);
     //sign up USER POST
     app.post('/userSignup', passport.authenticate('local-userSignup', {
-            successRedirect: '/userProfile',
-            failureRedirect: '/signup'
+            successRedirect: '/profile',
+            failureRedirect: '/signin'
         }
     ));
     //add rewards GET

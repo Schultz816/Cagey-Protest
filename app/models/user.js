@@ -50,7 +50,6 @@ module.exports = (sequelize, DataTypes) => {
         group: {
             type: DataTypes.STRING
         }
-
     });
 
     return User;

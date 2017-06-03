@@ -93,7 +93,7 @@ module.exports = function(passport, user) {
                             password: userPassword,
                             firstname: req.body.firstname,
                             lastname: req.body.lastname,
-                            group: "user"
+                            group: "user",
                         };
 
                     User.create(data).then(function(newUser, created) {
