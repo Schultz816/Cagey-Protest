@@ -37,10 +37,11 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 // Static directory
-app.use(express.static("./public"));
+app.use(express.static("./app/public"));
 
 
 // Set Handlebars
+
 // app.set('views', './app/views')
 // app.engine("hbs", exphbs({
 //     defaultLayout: "main"
@@ -51,9 +52,10 @@ app.set('views', path.join(__dirname, 'views')); // dynamic variable : all views
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));//Master page
 app.set('view engine', 'handlebars');
 
+
 // ROUTES
 require('./app/routes/auth.js')(app, passport);
-require('./app/config/passport/passport.js')(passport, db.user);
+require('./app/config/passport/passport.js')(passport, db.users);
 require("./app/routes/reward-api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
@@ -64,8 +66,51 @@ db.sequelize.sync({}).then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
+
+  // db.users.findAll().then(users => {
+  //   console.log(users)
+  // });
+
+  db.users.create({
+    parent_id: null,
+    firstname: "Pam",
+    username: "bossmom1",
+    email: "pam@aol.com",
+    password: "test",
+    points_earned: null,
+  });
+
+  db.users.create({
+    parentId: 1,
+    firstname: "Susie",
+    username: "lilsuze",
+    email: "suze@aol.com",
+    password: "test",
+    points_earned: null,
+  });
+
+  // creating 3 chores for susie
+
+  db.chores.create({
+    name: "dishes",
+    pointsWorth: 150,
+    userId: 2
+  });
+
+  db.chores.create({
+    name: "laundry",
+    pointsWorth: 250,
+    userId: 2
+  });
+
+  db.chores.create({
+    name: "trash",
+    pointsWorth: 50,
+    userId: 2
+  });
+
 }).catch(function(err) {
 
-    console.log(err, "Something went wrong with the Database Update!")
+    console.log(err, "Something went wrong with the Database Update!");
 
-});;
+});
