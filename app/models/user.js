@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const User = sequelize.define("users", {
+    const User = sequelize.define("user", {
 
         id: {
             autoIncrement: true,
@@ -51,7 +51,7 @@ module.exports = (sequelize, DataTypes) => {
 
         group: {
             type: DataTypes.STRING
-        }
+        },
 
         pointsWorth: {
             type: DataTypes.INTEGER,
@@ -66,7 +66,7 @@ module.exports = (sequelize, DataTypes) => {
             User.hasMany(models.events, {
               onDelete: "cascade"
             }),
-              User.hasMany(models.users, {
+              User.hasMany(models.user, {
                 as: 'Parent',
                 foreignKey : 'parentId',
                 onDelete: "cascade"
