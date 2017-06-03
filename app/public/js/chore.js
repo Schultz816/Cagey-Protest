@@ -79,11 +79,18 @@ $(document).ready(function() {
     newTr.data("author", authorData);
     newTr.append("<td>" + authorData.name + "</td>");
     newTr.append("<td>" + authorData.pointsWorth + "</td>");
-    newTr.append("<td>" + authorData.completed + "</td>");
+    newTr.append("<td>" + convertYN(authorData.completed) + "</td>");
     // newTr.append("<td><a href='/cms?author_id=" + authorData.id + "'>Create a Post</a></td>");
     newTr.append("<td><a style='cursor:pointer;color:blue' class='complete-chore'>Complete Chore</a></td>");
     newTr.append("<td><a style='cursor:pointer;color:red' class='delete-chore'>Delete Chore</a></td>");
     return newTr;
+  }
+
+  function convertYN(completed){
+    if (completed) {
+      return "Yes";
+    }
+    return "No";
   }
 
   // Function for retrieving authors and getting them ready to be rendered to the page
@@ -91,18 +98,23 @@ $(document).ready(function() {
     console.log("in getCh: CID: " + childId);
 
     $.get(`/api/Chores/${childId}`, function (chores) {
-      console.log(
-        "in getCh get /, chores= " +
-        JSON.stringify(chores, null, 1));
+      if(chores !== null) {
+        console.log(
+          "in getCh get /, chores= " +
+          JSON.stringify(chores, null, 1));
 
-      var rowsToAdd = [];
+        var rowsToAdd = [];
 
-      for (var i = 0; i < chores.length; i++) {
-        rowsToAdd.push(createAuthorRow(chores[i]));
+        for (var i = 0; i < chores.length; i++) {
+          rowsToAdd.push(createAuthorRow(chores[i]));
+        }
+
+        renderAuthorList(rowsToAdd);
+      } else {
+        authorList.children().remove();
+        renderEmpty();
       }
-
-      renderAuthorList(rowsToAdd);
-      // nameInput.val("");
+      nameInput.val("");
 
     });
   }
@@ -111,9 +123,10 @@ $(document).ready(function() {
   function renderAuthorList(rows) {
     authorList.children().not(":last").remove();
     authorContainer.children(".alert").remove();
+    authorList.children().remove();
 
     if (rows.length) {
-      console.log(rows);
+      //console.log(JSON.stringify(rows, null, 1));
       authorList.prepend(rows);
     }
     else {
@@ -121,22 +134,27 @@ $(document).ready(function() {
     }
   }
 
-  // // Function for handling what to render when there are no authors
-  // function renderEmpty() {
-  //   var alertDiv = $("<div>");
-  //   alertDiv.addClass("alert alert-danger");
-  //   alertDiv.html("You must create an Author before you can create a Post.");
-  //   authorContainer.append(alertDiv);
-  // }
+  // Function for handling what to render when there are no authors
+  function renderEmpty() {
+    var alertDiv = $("<div>");
+    alertDiv.addClass("alert alert-danger");
+    alertDiv.html("You have no chores.");
+    authorContainer.append(alertDiv);
+  }
 
   // Function for handling what happens when the delete button is pressed
   function handleDeleteButtonPress() {
     var listItemData = $(this).parent("td").parent("tr").data("author");
     var id = listItemData.id;
+
     $.ajax({
       method: "DELETE",
-      url: "/api/authors/" + id
+      url: "/api/chores/" + id
     })
-      .done(getChores);
+      .done(
+        // console.log("back in chore.js del.done()")
+        getChildId(getChores)
+      );
   }
+
 });

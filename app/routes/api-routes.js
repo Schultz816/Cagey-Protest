@@ -44,15 +44,44 @@ module.exports = function(app) {
       }]
 
     }).then(function(user) {
-      let chores = user[0].chores; // chores is an array
-      console.log(
-      "in api/chores/id .then chores= " +
-      JSON.stringify(chores, null, 2));
-      res.json(chores);
+      //console.log("uzzer= " + JSON.stringify(user,null,1));
+
+      if(typeof user[0] !== 'undefined') {
+        let chores = user[0].chores; // chores is an array
+        console.log(
+          "in api/chores/id .then chores= " +
+          JSON.stringify(chores, null, 2));
+        res.json(chores);
+      }
+      else {
+        res.json(null);
+      }
+
     });
   });
 
-};
+
+  app.delete("/api/chores/:id", function(req, res) {
+
+    console.log("in delete chores/id: " + req.params.id);
+
+    db.chores.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbAuthor) {
+      //res.json(dbAuthor);
+      console.log("in chore-delete then");
+    });
+
+
+  });
+
+
+
+
+}; // end function(app)
+
 
 // works because Chores has a userId column
 // i.e., Chores has a Users foreign-key
