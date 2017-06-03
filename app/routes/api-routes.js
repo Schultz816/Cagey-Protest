@@ -87,7 +87,7 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(chore => {
-      console.log("choreeeee: " + JSON.stringify(chore, null,1));
+      //console.log("choreeeee: " + JSON.stringify(chore, null,1));
 
       db.chores.upsert({
         id: req.params.id,

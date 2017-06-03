@@ -13,8 +13,7 @@ $(document).ready(function () {
 	// Adding event listeners to the form to create a new object, and the button to delete a reward
 	$(document).on("submit", "#reward-form", handleRewardFormSubmit);
 	$(document).on("click", ".delete-reward", handleDeleteButtonPress);
-
-	//$(document).on("click", ".redeem-reward", handleRedeemButtonPress);
+	$(document).on("click", ".redeem-reward", handleRedeemButtonPress);
 
   const parentId = 1;
 
@@ -172,5 +171,28 @@ function showTotalPoints(childId){
     });
 }
 
+  // Function for handling what happens when the complete button is pressed
+  function handleRedeemButtonPress() {
+    var listItemData = $(this).parent("td").parent("tr").data("reward");
+    var id = listItemData.id;
+
+    $.ajax({
+      method: "PUT",
+      url: "/api/rewards/" + id
+    })
+      .done(
+        // console.log("back in chore.js del.done()")
+        getChildId(showTotalPoints)
+				//getChildId(getRewards)
+      );
+
+    $.ajax({
+      method: "DELETE",
+      url: "/api/rewards/" + id
+    })
+      .done(
+        getChildId(getRewards)
+      );
+  }
 
 }); // end document.ready

@@ -75,7 +75,7 @@ db.sequelize.sync({force: true}).then(function () {
     username: "bossmom1",
     email: "pam@aol.com",
     password: "test",
-    points_earned: null,
+    pointsEarned: null,
   });
 
   db.user.create({
@@ -84,7 +84,7 @@ db.sequelize.sync({force: true}).then(function () {
     username: "lilsuze",
     email: "suze@aol.com",
     password: "test",
-    points_earned: null,
+    pointsEarned: 750,
   });
 
   // creating 3 chores for susie

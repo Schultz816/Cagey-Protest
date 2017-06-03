@@ -97,6 +97,53 @@ module.exports = function(app) {
 
   });
 
+  app.put("/api/rewards/:id", function(req, res){
+    console.log("in PUT rewards, id: " + req.params.id);
+
+    var points = 0;
+
+    db.rewards.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(reward => {
+      console.log("choreeeee: " + JSON.stringify(reward, null,1));
+
+      points += reward.redeemAmount;
+
+      db.user.findOne({
+				where: {
+					id: reward.userId
+				}
+			}).then( user => {
+
+				points = user.pointsEarned - points;
+
+				db.user.upsert({
+					id: user.id,
+					firstname: user.firstname, //"Wowwwwwwwww!",
+					username: user.username,
+					password: user.password,
+					pointsEarned: points,
+					group: user.group,
+					parentId: user.parentId
+					// where: {
+					//   id: req.params.id
+					// }
+				}).then( chore => {
+					console.log(
+						"in -PUT then: "
+						+ JSON.stringify(chore));
+					res.json(chore)
+				})
+
+      })
+
+    });
+  })
+
+
+
 
   // app.get("/api/rewards/:cId", function(req, res) {
   //
