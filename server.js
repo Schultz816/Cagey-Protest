@@ -37,11 +37,11 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 // Static directory
-app.use(express.static("./public"));
+app.use(express.static("./app/public"));
 
 
 // Set Handlebars
-app.set('views', './app/views')
+app.set('views', './views')
 app.engine("handlebars", exphbs({
     // defaultLayout: "main",
     extname: 'handlebars'
