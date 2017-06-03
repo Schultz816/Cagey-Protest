@@ -8,8 +8,8 @@
 const express = require("express");
 const app = express();
 //required for authentication
-const passport   = require('passport')
-const session    = require('express-session')
+const passport = require('passport')
+const session = require('express-session')
 //parse request bodies into JSON
 const bodyParser = require("body-parser");
 //handles environment variables
@@ -27,36 +27,32 @@ var path = require("path");
 
 // Sets up the express app to handle data parsing
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(bodyParser.json({type: "application/vnd.api+json"}));
 
 // For Passport
-app.use(session({ secret: 'keyboard cat',resave: true, saveUninitialized:true})); // session secret
+app.use(session({secret: 'keyboard cat', resave: true, saveUninitialized: true})); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 // Static directory
-app.use(express.static("./app/public"));
+
+app.use(express.static(path.join(__dirname, "/app/public")));
 
 
 // Set Handlebars
-app.set('views', './views')
-app.engine("handlebars", exphbs({
-    // defaultLayout: "main",
-    extname: 'handlebars'
-}));
-app.set("view engine", "handlebars");
 
-// app.set('views', path.join(__dirname, 'app/views'));
-//
-// app.engine('.hbs', exphbs({
-//     defaultLayout: 'main',
-//     extname: '.handlebars',
-//     layoutsDir:'app/views/layouts',
-//     partialsDir:'app/views'
+// app.set('views', './app/views')
+// app.engine("hbs", exphbs({
+//     defaultLayout: "main"
 // }));
-// app.set('view engine', '.hbs');
+// app.set("view engine", ".hbs");
+
+app.set('views', path.join(__dirname, 'views')); // dynamic variable : all views in views directory
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));//Master page
+app.set('view engine', 'handlebars');
+
 
 // ROUTES
 require('./app/routes/auth.js')(app, passport);
@@ -64,14 +60,15 @@ require('./app/config/passport/passport.js')(passport, db.user);
 require("./app/routes/reward-api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
-db.sequelize.sync({}).then(function() {
+db.sequelize.sync({}).then(function () {
 
-  console.log('Nice! Database looks fine')
+    console.log('Nice! Database looks fine')
 
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
-}).catch(function(err) {
+    app.listen(PORT, function () {
+        console.log("App listening on PORT " + PORT);
+    });
+
+}).catch(function (err) {
 
     console.log(err, "Something went wrong with the Database Update!");
 

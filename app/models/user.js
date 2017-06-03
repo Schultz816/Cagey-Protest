@@ -53,9 +53,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
 
-        pointsWorth: {
-            type: DataTypes.INTEGER,
-            defaultValue: 0
+
+        pointsEarned: {
+            type: DataTypes.INTEGER
         }
 
     },
@@ -73,7 +73,10 @@ module.exports = (sequelize, DataTypes) => {
               }),
               User.hasMany(models.rewards, {
                 onDelete: "cascade"
-              });
+              }),
+              User.hasMany(models.chores, {
+                onDelete: "cascade"
+              })
           }
         }
     }
