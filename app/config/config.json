@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "mysql.com99Mb",
+    "password": null,
     "database": "tasko_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
