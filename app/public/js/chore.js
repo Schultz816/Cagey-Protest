@@ -19,9 +19,9 @@ $(document).ready(function() {
    */
   // this is a parent's ID to look in chore table for all the chores that belong to
   // the child
-  const parentId = 1; // Pam's User ID
+  //const parentId = 1; // Pam's User ID
   // let CUID; // Susie's ID
-  console.log(" * * **********in chore.js * * **********");
+  //console.log(" * * **********in chore.js * * **********");
 
   // Have to uses Pam's ID to find Susie's ID
   // so have to users.findall where parentID = 1
@@ -30,17 +30,24 @@ $(document).ready(function() {
 
   // this is a function getChildId that will have a callback for whatever function will need
   //  a child's ID will use api/route
-  function getChildId(cb){ // probably will be:  getChildId(parentId, cb) {
+  function getChildId(cb) {
 
-    $.get(`/api/child/${parentId}`)
-      .then( function(user) {
-        //user = user[0];
-        console.log(
-          "childId: " + user.id +
-          " name: " + user.firstname);
-        cb(user.id);
-      });
+    // eventually will need function call here to set pId
+    //let pId = parentId;
+    //console.log("pId: " + pId);
+    let pId = null;
 
+    if (typeof pId !== "object") {
+
+      $.get(`/api/child/${pId}`)
+        .then(function (user) {
+          //user = user[0];
+          console.log(
+            "childId: " + user.id +
+            " name: " + user.firstname);
+          cb(user.id);
+        });
+    }
     // $.get(`/api/child/${parentId}`, function(user) {
     //   console.log(
     //     "In chore.js - childId: " + JSON.stringify(user) +

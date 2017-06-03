@@ -5,21 +5,21 @@ var db = require("../models/index");
 // =============================================================
 module.exports = function(app) {
 
-    // // POST route for saving a new post
-    // app.post("/api/users", function(req, res) {
-    //     db.users.create({
-    //         username: req.body.username,
-    //         email: req.body.email
-    //     }).then(function(dbUser) {
-    //         res.json(dbUser);
-    //     });
-    // });
-    //
-    // app.get("/api/users", function(req, res) {
-    //     db.users.findAll({}).then(function(dbUser) {
-    //         res.json(dbUser);
-    //     });
-    // });
+    // POST route for saving a new post
+    app.post("/api/users", function(req, res) {
+        db.users.create({
+            username: req.body.username,
+            email: req.body.email
+        }).then(function(dbUser) {
+            res.json(dbUser);
+        });
+    });
+
+    app.get("/api/users", function(req, res) {
+        db.users.findAll({}).then(function(dbUser) {
+            res.json(dbUser);
+        });
+    });
 
   app.get("/api/child/:pid", function(req, res) {
     db.users.findAll({
