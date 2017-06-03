@@ -53,6 +53,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING
         },
 
+
         pointsEarned: {
             type: DataTypes.INTEGER
         }

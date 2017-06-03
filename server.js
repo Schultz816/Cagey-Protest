@@ -37,6 +37,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 // Static directory
+
 app.use(express.static(path.join(__dirname, "/app/public")));
 
 
