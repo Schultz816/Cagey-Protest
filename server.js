@@ -57,7 +57,7 @@ app.set('view engine', 'handlebars');
 // ROUTES
 require('./app/routes/auth.js')(app, passport);
 require('./app/config/passport/passport.js')(passport, db.user);
-require("./app/routes/reward-api-routes.js")(app);
+// require("./app/routes/reward-api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
 db.sequelize.sync({}).then(function () {
