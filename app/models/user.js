@@ -48,6 +48,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.ENUM('active', 'inactive'),
             defaultValue: 'active'
         },
+
+        group: {
+            type: DataTypes.STRING
+        }
+
         pointsWorth: {
             type: DataTypes.INTEGER,
             defaultValue: 0
@@ -73,6 +78,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     }
     );
+
     return User;
 };
 

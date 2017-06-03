@@ -1,6 +1,7 @@
-//load bcrypt
+//load bcrypt for password hashing
 var bCrypt = require('bcrypt-nodejs');
 
+//make this stuff accessible to other parts of the application
 module.exports = function(passport, user) {
 
     //initialize the passport-local strategy and user model
@@ -41,7 +42,58 @@ module.exports = function(passport, user) {
                             email: email,
                             password: userPassword,
                             firstname: req.body.firstname,
-                            lastname: req.body.lastname
+                            lastname: req.body.lastname,
+                            group: "admin"
+                        };
+
+                    User.create(data).then(function(newUser, created) {
+                        if (!newUser) {
+                            return done(null, false);
+                        }
+                        if (newUser) {
+                            return done(null, newUser);
+                        }
+                    });
+                }
+            });
+        }
+    ));
+
+    passport.use('local-userSignup', new LocalStrategy(
+
+        {
+            usernameField: 'email',
+            passwordField: 'password',
+            passReqToCallback: true // allows us to pass back the entire request to the callback
+        },
+
+        function(req, email, password, done) {
+            var generateHash = function(password) {
+
+                return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+            };
+
+            User.findOne({
+                where: {
+                    email: email
+                }
+            }).then(function(user) {
+
+                if (user)
+                {
+                    return done(null, false, {
+                        message: 'That email is already taken'
+                    });
+                } else
+                {
+                    var userPassword = generateHash(password);
+                    var data =
+                        {
+                            email: email,
+                            password: userPassword,
+                            firstname: req.body.firstname,
+                            lastname: req.body.lastname,
+                            group: "user",
                         };
 
                     User.create(data).then(function(newUser, created) {
@@ -94,12 +146,14 @@ module.exports = function(passport, user) {
 
             passwordField: 'password',
 
+            groupField: 'group',
+
             passReqToCallback: true // allows us to pass back the entire request to the callback
 
         },
 
 
-        function(req, email, password, done) {
+        function(req, email, password, done, group) {
 
             var User = user;
 

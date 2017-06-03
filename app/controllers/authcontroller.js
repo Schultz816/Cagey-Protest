@@ -1,11 +1,16 @@
 var exports = module.exports = {}
 
-//sign up
+//ADMIN sign up
 exports.signup = function(req, res) {
     res.render('signup');
 }
 
-//sign in
+//USER sign up
+exports.userSignup = function(req, res) {
+    res.render('userSignup');
+}
+
+//GENERAL sign in
 exports.signin = function(req, res) {
     res.render('signin');
 }
