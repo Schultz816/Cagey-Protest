@@ -41,21 +41,15 @@ app.use(express.static("./public"));
 
 
 // Set Handlebars
-app.set('views', './app/views')
-app.engine("hbs", exphbs({
-    defaultLayout: "main"
-}));
-app.set("view engine", ".hbs");
-
-// app.set('views', path.join(__dirname, 'app/views'));
-//
-// app.engine('.hbs', exphbs({
-//     defaultLayout: 'main',
-//     extname: '.handlebars',
-//     layoutsDir:'app/views/layouts',
-//     partialsDir:'app/views'
+// app.set('views', './app/views')
+// app.engine("hbs", exphbs({
+//     defaultLayout: "main"
 // }));
-// app.set('view engine', '.hbs');
+// app.set("view engine", ".hbs");
+
+app.set('views', path.join(__dirname, 'views')); // dynamic variable : all views in views directory
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));//Master page
+app.set('view engine', 'handlebars');
 
 // ROUTES
 require('./app/routes/auth.js')(app, passport);
