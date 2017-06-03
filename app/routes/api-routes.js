@@ -77,7 +77,49 @@ module.exports = function(app) {
 
   });
 
+  app.put("/api/chores/:id", function(req, res){
+    console.log("in PUT chores, id: " + req.params.id);
 
+    db.chores.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(chore => {
+      console.log("choreeeee: " + JSON.stringify(chore, null,1));
+
+      db.chores.upsert({
+        id: req.params.id,
+        name: chore.name, //"Wowwwwwwwww!",
+        completed: true,
+        pointsWorth: chore.pointsWorth
+        // where: {
+        //   id: req.params.id
+        // }
+      }).then( chore => {
+        console.log(
+          "in chore-PUT then: "
+          + JSON.stringify(chore));
+        res.json(chore)
+      })
+    });
+  })
+
+  app.post("/api/chores/:id", function(req, res) {
+    console.log("in POST chores, id: " + req.params.id);
+
+    db.chores.create({
+      name: req.body.name,
+      pointsWorth: req.body.pointsWorth,
+      userId: 2
+    })
+      .then( newChore => {
+        console.log(
+          "in chore-post then: "
+          + JSON.stringify(newChore));
+        res.json(newChore)
+      });
+
+  });
 
 
 }; // end function(app)

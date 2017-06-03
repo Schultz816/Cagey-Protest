@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   // Getting references to the name inout and author container, as well as the table body
   var nameInput = $("#chore-name");
+  let pointsInput = $("#points");
   // var authorList = $("tbody");
   var authorList = $("#tbody-top");
   var authorContainer = $(".author-container");
@@ -9,6 +10,7 @@ $(document).ready(function() {
   // an Author
   $(document).on("submit", "#chore-form", handleAuthorFormSubmit);
   $(document).on("click", ".delete-chore", handleDeleteButtonPress);
+  $(document).on("click", ".complete-chore", handleCompleteButtonPress);
 
 
   /**
@@ -48,29 +50,41 @@ $(document).ready(function() {
     // });
   }
 
+
   getChildId(getChores);
   // Getting the initial list of Authors
   //getChores(); //call by getChildId
 
+
   // A function to handle what happens when the form is submitted to create a new Author
   function handleAuthorFormSubmit(event) {
     event.preventDefault();
+
     // Don't do anything if the name fields hasn't been filled out
-    if (!nameInput.val().trim().trim()) {
+    if (!nameInput.val().trim().trim() || !nameInput.val().trim().trim()) {
       return;
     }
     // Calling the upsertAuthor function and passing in the value of the name input
-    upsertAuthor({
-      name: nameInput
-        .val()
-        .trim()
-    });
+    getChildId(upsertAuthor)
+
+    // upsertAuthor({
+    //   name: nameInput.val().trim(),
+    //   pointsWorth: pointsInput.val().trim()
+    // });
   }
 
+
   // A function for creating an author. Calls getChores upon completion
-  function upsertAuthor(authorData) {
-    $.post("/api/authors", authorData)
-      .then(getChores);
+  //function upsertAuthor(authorData, childId) {
+  function upsertAuthor(childId) {
+
+    let authorData = {
+      name: nameInput.val().trim(),
+      pointsWorth: pointsInput.val().trim()
+    }
+
+    $.post("/api/chores/" + childId, authorData)
+      .then(getChildId(getChores));
   }
 
   // Function for creating a new list row for authors
@@ -115,7 +129,7 @@ $(document).ready(function() {
         renderEmpty();
       }
       nameInput.val("");
-
+      pointsInput.val("");
     });
   }
 
@@ -149,6 +163,21 @@ $(document).ready(function() {
 
     $.ajax({
       method: "DELETE",
+      url: "/api/chores/" + id
+    })
+      .done(
+        // console.log("back in chore.js del.done()")
+        getChildId(getChores)
+      );
+  }
+
+  // Function for handling what happens when the complete button is pressed
+  function handleCompleteButtonPress() {
+    var listItemData = $(this).parent("td").parent("tr").data("author");
+    var id = listItemData.id;
+
+    $.ajax({
+      method: "PUT",
       url: "/api/chores/" + id
     })
       .done(

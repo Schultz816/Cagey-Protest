@@ -21,6 +21,42 @@
 
 <body id="testCss"><!--onload="firstMethod()" waid71fa0d88-5390-4b5b-a2f4-e45fa93d85e2="SA password protect entry checker">-->
 
+<!-- ======= NAVIGATION BAR STARTS ======= -->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/dashboard">Tasko</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/reward">REWARDS</a></li>
+                <li><a href="/logout">LOGOUT</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <!--<li><a href="#">Another action</a></li>-->
+                        <!--<li><a href="#">Something else here</a></li>-->
+                        <!--<li role="separator" class="divider"></li>-->
+                        <!--<li><a href="#">Separated link</a></li>-->
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav> <!-- ======= NAVIGATION BAR ENDS =======  -->
+
+
 <div class="container">
 
     <!-- Jumbotron for Title -->
@@ -29,58 +65,6 @@
             <!--<i class="fa fa-usd" aria-hidden="true"></i>-->
             Chore List</strong></h1>
     </div>
-
-    <!--&lt;!&ndash;  inline button to add new chores &ndash;&gt;-->
-    <!--<div class="row text-center">-->
-    <!--<form class="form-inline" id="create">-->
-        <!--&lt;!&ndash;<label class="sr-only" for="inlineFormInput">Chore Assignment</label>&ndash;&gt;-->
-        <!--<label class="mr-sm-2" for="inlineFormCustomSelect">New Chore</label>-->
-        <!--<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="new-chore" placeholder="New Chore">-->
-
-        <!--<label class="mr-sm-2" for="inlineFormCustomSelect">Point Value</label>-->
-        <!--<input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="point-value" placeholder="Example 100">-->
-
-        <!--<button type="button" class="btn btn-primary" onclick="createInput()">Add Chore</button>-->
-
-        <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
-            <!--&lt;!&ndash;<label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>&ndash;&gt;-->
-            <!--&lt;!&ndash;<div class="input-group">&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash; <div class="input-group-addon">$</div> &ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;<input type="text" class="form-control" id="placeholder" placeholder="Total Points">&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash; <div class="input-group-addon">.00</div> &ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<button type="submit" class="btn btn-primary" id="points">Transfer Points</button>&ndash;&gt;-->
-
-        <!--<p></p>-->
-
-            <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
-                <!--&lt;!&ndash;<div class="col-sm-4" id="column1">CHORES&ndash;&gt;-->
-                    <!--&lt;!&ndash;&lt;!&ndash;button type="button" class="btn btn-primary btn-lg btn-block" data-amount="200" value="Add 200" id="200">Mow Lawn  +200</button>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<button type="button" class="btn btn-secondary btn-lg btn-block" data-amount="100" value="Add 100" id="100">Wash Dishes  +100</button>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<button type="button" class="btn btn-primary btn-lg btn-block" data-amount="100" value="Add 100" id="100">Clean Room  +100</button>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<button type="button" class="btn btn-secondary btn-lg btn-block" data-amount="200" value="Add 200" id="200">Laundry  +200</button>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<button type="button" class="btn btn-primary btn-lg btn-block" data-amount="100" value="Add 100" id="100">Vaccum  +100</button>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<button type="button" class="btn btn-secondary btn-lg btn-block" data-amount="100" value="Add 100" id="100">Walk the Dog +100</button>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<button type="button" class="btn btn-primary btn-lg btn-block" data-amount="200" value="Add 200" id="200">Clean Bathroom  +200</button>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<button type="button" class="btn btn-secondary btn-lg btn-block" data-amount="200" value="Add 200" id="100">Water Plants +100</button>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<button type="button" class="btn btn-primary btn-lg btn-block" onclick="createInput();" >Insert after</button> &ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-                <!--&lt;!&ndash;&lt;!&ndash;<div class="col-sm-4" id="column2">ASSIGNMENTS&ndash;&gt;&ndash;&gt;-->
-                    <!--&lt;!&ndash;&lt;!&ndash; <button type="button" class="btn btn-primary btn-lg btn-block" id="assign">Assign</button> &ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
-
-                <!--&lt;!&ndash;<div class="col-sm-4" id="column3">COMPLETED</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-            <!--<p></p>-->
-            <!--&lt;!&ndash;<button type="button" class="btn btn-primary btn-lg btn-block" id="assign">ASSIGN CHORES</button>&ndash;&gt;-->
-            <!--<p></p>-->
-           <!--&lt;!&ndash;<button type="button" class="btn btn-primary btn-lg btn-block" id="assign" onclick="window.location.reload()">RESET</button>&ndash;&gt;-->
-        <!--&lt;!&ndash;<a href="/logout" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> Logout</a>&ndash;&gt;-->
-    <!--</form>-->
-    <!--</div>-->
 
     <div class="row text-center">
         <div class="col-md-8 col-md-offset-2">
@@ -101,47 +85,12 @@
                     </tbody>
                 </table>
 
-                <!--<div class="row text-center">-->
-                    <!--<div class="col-md-8 col-md-offset-2 text-center">-->
-                <!--<table>-->
-                    <!--&lt;!&ndash;<thead>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<td>Chore</td>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<td>Points</td>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<td>Complete</td>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<td>Mark Complete</td>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</thead>&ndash;&gt;-->
-                    <!--<tbody>-->
-                    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<td>1</td>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<td>2</td>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<td>3</td>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
-                    <!--<tr id="form-row">-->
-                        <!--<form id="chore-form" class="text-center">-->
-                            <!--<td colspan="3">-->
-
-                                <!--<input placeholder="Enter a Chore" id="chore-name" type="text" />-->
-                            <!--</td>-->
-                            <!--<td>-->
-                                <!--<input placeholder="Enter Points" id="points" type="text" />-->
-                            <!--</td>-->
-                            <!--<td>-->
-                                <!--<button type="submit" class="btn btn-primary">Add Chore</button>-->
-                            <!--</td>-->
-
-                        <!--</form>-->
-                    <!--</tr>-->
-                    <!--</tbody>-->
-                <!--</table>-->
             </div>
         </div>
     </div>
 
     <div class="row text-center">
         <div class="col-md-8 col-md-offset-2">
-
                 <tr id="form-row">
                     <form id="chore-form" class="text-center">
                         <td colspan="1">
@@ -159,7 +108,6 @@
 
                     </form>
                 </tr>
-
         </div>
     </div>
 
