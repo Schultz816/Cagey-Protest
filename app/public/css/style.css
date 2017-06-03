@@ -19,6 +19,11 @@ body {
   background: #fff;
 }
 
+.jumbotron {
+  background-color: white;
+  height: 50px;
+}
+
 #page {
   position: relative;
   overflow-x: hidden;

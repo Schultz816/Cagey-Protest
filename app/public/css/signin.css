@@ -30,6 +30,9 @@ form:after {
 	visibility: hidden;
 }
 
+#tasko-title {
+	font-size: 30px;
+}
 
 .container { margin: 25px auto; position: relative; width: 900px; }
 #content {
