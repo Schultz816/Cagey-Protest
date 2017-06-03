@@ -3,7 +3,7 @@ Purpose: Admin view upon login -->
 
 
 {{!-- <head> --}}
-  <title>TASKO | Home</title>
+  <title>TASKO | Dashboard</title>
 {{!-- </head> --}}
 
 {{!-- <body> --}}
@@ -11,45 +11,12 @@ Purpose: Admin view upon login -->
   <div class="fh5co-loader"></div>
   <div id="page"> {{!-- EDU PAGE START --}}
 
-  <!-- ======= NAVIGATION BAR STARTS ======= -->
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Brand</a>
-      </div>
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav> <!-- ======= NAVIGATION BAR ENDS =======  -->
-
-
-  <a href="/chore" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span> Chores</a>
+  {{!-- <a href="/chore" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-plus"></span> Chores</a>
   <a href="/reward" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> Rewards</a>
   <a href="/profile" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> Profile</a>
 
   <a href="/logout" class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-th-list"></span> Logout</a>
-
+ --}}
   {{!-- categories START --}}
 
     <div id="fh5co-course-categories">
@@ -57,7 +24,7 @@ Purpose: Admin view upon login -->
         
         <div class="row animate-box">
           <div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-            <h2>MAIN DASHBOARD</h2>
+            <h2>DASHBOARD</h2>
             <p>Select any of the below options to get started</p>
           </div>
         </div>
@@ -67,7 +34,7 @@ Purpose: Admin view upon login -->
           <div class="col-md-3 col-sm-6 text-center animate-box">
             <div class="services">
               <span class="icon">
-                <i class="icon-shop"></i>
+                <i class="icon-home-outline"></i>
               </span>
               <div class="desc">
                 <h3><a href="/chore"><span class="glyphicon glyphicon-plus"></span> Chores</a></h3>
@@ -79,10 +46,10 @@ Purpose: Admin view upon login -->
           <div class="col-md-3 col-sm-6 text-center animate-box">
             <div class="services">
               <span class="icon">
-                <i class="icon-heart4"></i>
+                <i class="icon-banknote"></i>
               </span>
               <div class="desc">
-                <h3><a href="/reward"><span class="glyphicon glyphicon-th-list"></span>Rewards &amp; something else</a></h3>
+                <h3><a href="/reward"><span class="glyphicon glyphicon-th-list"></span>Rewards</a></h3>
                 <p>Add and redeem rewards</p>
               </div>
             </div>
@@ -90,7 +57,7 @@ Purpose: Admin view upon login -->
           <div class="col-md-3 col-sm-6 text-center animate-box">
             <div class="services">
               <span class="icon">
-                <i class="icon-banknote"></i>
+                <i class="icon-photo"></i>
               </span>
               <div class="desc">
                 <h3><a href="/profile"><span class="glyphicon glyphicon-th-list"></span>Profile</a></h3>
@@ -101,11 +68,11 @@ Purpose: Admin view upon login -->
           <div class="col-md-3 col-sm-6 text-center animate-box">
             <div class="services">
               <span class="icon">
-                <i class="icon-lab2"></i>
+                <i class="icon-heart4"></i>
               </span>
               <div class="desc">
-                <h3><a href="/logout"><span class="glyphicon glyphicon-th-list"></span>Logout &amp; something</a></h3>
-                <p>Logout through here? should we move this to the nav bar?</p>
+                <h3><a href="/logout"><span class="glyphicon glyphicon-th-list"></span>Logout</a></h3>
+                <p>Logout</p>
               </div>
             </div>
           </div>
