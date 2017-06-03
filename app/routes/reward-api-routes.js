@@ -7,40 +7,134 @@ var db = require("../models/index");
 // julia2:routes/reward-api-routes.js
 
 module.exports = function(app) {
-	app.get("/api/rewards", function(req, res) {
-		db.rewards.findAll({
-			include: [db.Post]
-		}).then(function(dbReward) {
-			res.json(dbReward);
-		});
-		res.send("reward-api is working!");
-	});
 
-	app.get("/api/rewards/:id", function(req, res) {
-		db.rewards.findOne({
-			where: {
-				id: req.params.id
-			},
-			include: [db.Post]
-		}).then(function(dbReward) {
-			res.json(dbReward);
-		});
-	});
+  // app.get("/api/child/:pid", function(req, res) {
+  //   db.user.findAll({
+  //     where: {
+  //       parentId: req.params.pid
+  //     }
+  //   }).then(function(dbUser) {
+  //     console.log(
+  //       "in REWARD -api/child/pid .then user= " +
+  //       JSON.stringify(dbUser, null, 2));
+  //     res.json(dbUser[0]);
+  //   });
+  // });
 
-	app.post("/api/rewards", function(req, res) {
-		db.rewards.create(req.body).then(function(dbReward) {
-			res.json(dbReward);
-		});
-	});
+	app.get("/api/user/:id", function(req, res) {
 
-	app.delete("/api/rewards/:id", function(req, res) {
-		db.rewards.destroy({
+		db.user.findOne({
 			where: {
 				id: req.params.id
 			}
-		}).then(function(dbReward) {
-			res.json(dbReward);
+		}).then(function(user) {
+      console.log("in find user,  user: "
+        + JSON.stringify(user,null,1));
+
+			res.json(user);
 		});
+
 	});
+
+  app.get("/api/rewards/:id", function(req, res) {
+    db.user.findAll({
+
+      include: [{
+        model: db.rewards,
+        where: { userId: req.params.id}
+      }]
+
+    }).then(function(user) {
+      // console.log("uzzer= " + JSON.stringify(user,null,1));
+			// console.log('typeof user ' + typeof user );
+
+      //if(typeof user !== 'object') {
+      if(typeof user[0] !== 'undefined') {
+        let rewards = user[0].rewards; // chores is an array
+        // console.log(
+        //   "in api/chores/id .then chores= " +
+        //   JSON.stringify(chores, null, 2));
+        res.json(rewards);
+      }
+      else {
+      	console.log("IN rewards/id GET, user = undef")
+        res.json(null);
+      }
+
+    });
+  });
+
+  app.post("/api/rewards/:id", function(req, res) {
+    console.log("in POST rewards, id: " + req.params.id);
+
+    db.rewards.create({
+      name: req.body.name,
+      redeemAmount: req.body.redeemAmount,
+      userId: req.params.id
+    })
+      .then( newChore => {
+        console.log(
+          "in Reward-post then: "
+          + JSON.stringify(newChore));
+        res.json(newChore)
+      });
+
+  });
+
+
+  app.delete("/api/rewards/:id", function(req, res) {
+
+    console.log("in delete rewards/id: " + req.params.id);
+
+    db.rewards.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbAuthor) {
+      res.json(dbAuthor);
+      console.log("in chore-delete then");
+    });
+
+  });
+
+
+  // app.get("/api/rewards/:cId", function(req, res) {
+  //
+  //   db.user.findOne({
+  //     where: {
+  //       id: req.params.cId
+  //     }
+  //   }).then(function(child) {
+  //     res.json(child);
+  //   });
+  //
+  // });
+
+	// app.get("/api/rewards/:id", function(req, res) {
+	// 	db.rewards.findOne({
+	// 		where: {
+	// 			id: req.params.id
+	// 		},
+	// 		include: [db.Post]
+	// 	}).then(function(dbReward) {
+	// 		res.json(dbReward);
+	// 	});
+	// });
+  //
+	// app.post("/api/rewards", function(req, res) {
+	// 	db.rewards.create(req.body).then(function(dbReward) {
+	// 		res.json(dbReward);
+	// 	});
+	// });
+  //
+	// app.delete("/api/rewards/:id", function(req, res) {
+	// 	db.rewards.destroy({
+	// 		where: {
+	// 			id: req.params.id
+	// 		}
+	// 	}).then(function(dbReward) {
+	// 		res.json(dbReward);
+	// 	});
+	// });
 
 };

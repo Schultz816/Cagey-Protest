@@ -5,38 +5,39 @@ var db = require("../models/index");
 // =============================================================
 module.exports = function(app) {
 
-    // POST route for saving a new post
-    app.post("/api/users", function(req, res) {
-        db.users.create({
-            username: req.body.username,
-            email: req.body.email
-        }).then(function(dbUser) {
-            res.json(dbUser);
-        });
-    });
+    // // POST route for saving a new post
+    // app.post("/api/users", function(req, res) {
+    //     db.user.create({
+    //         username: req.body.username,
+    //         email: req.body.email
+    //     }).then(function(dbUser) {
+    //         res.json(dbUser);
+    //     });
+    // });
+    //
+    // app.get("/api/users", function(req, res) {
+    //     db.user.findAll({}).then(function(dbUser) {
+    //         res.json(dbUser);
+    //     });
+    // });
 
-    app.get("/api/users", function(req, res) {
-        db.users.findAll({}).then(function(dbUser) {
-            res.json(dbUser);
-        });
-    });
 
   app.get("/api/child/:pid", function(req, res) {
-    db.users.findAll({
+    db.user.findAll({
       where: {
         parentId: req.params.pid
       }
     }).then(function(dbUser) {
-      console.log(
-        "in api/child/pid .then dbUser= " +
-        JSON.stringify(dbUser, null, 2));
+      // console.log(
+      //   "in api/child/pid .then dbUser= " +
+      //   JSON.stringify(dbUser, null, 2));
       res.json(dbUser[0]);
     });
   });
 
 
   app.get("/api/chores/:id", function(req, res) {
-    db.users.findAll({
+    db.user.findAll({
 
       include: [{
         model: db.chores,
@@ -48,9 +49,9 @@ module.exports = function(app) {
 
       if(typeof user[0] !== 'undefined') {
         let chores = user[0].chores; // chores is an array
-        console.log(
-          "in api/chores/id .then chores= " +
-          JSON.stringify(chores, null, 2));
+        // console.log(
+        //   "in api/chores/id .then chores= " +
+        //   JSON.stringify(chores, null, 2));
         res.json(chores);
       }
       else {
@@ -74,8 +75,9 @@ module.exports = function(app) {
       console.log("in chore-delete then");
     });
 
-
   });
+
+
 
   app.put("/api/chores/:id", function(req, res){
     console.log("in PUT chores, id: " + req.params.id);
@@ -110,7 +112,7 @@ module.exports = function(app) {
     db.chores.create({
       name: req.body.name,
       pointsWorth: req.body.pointsWorth,
-      userId: 2
+      userId: req.params.id
     })
       .then( newChore => {
         console.log(

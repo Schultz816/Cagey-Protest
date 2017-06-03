@@ -19,7 +19,7 @@ $(document).ready(function() {
    */
   // this is a parent's ID to look in chore table for all the chores that belong to
   // the child
-  //const parentId = 1; // Pam's User ID
+  const parentId = 1; // Pam's User ID
   // let CUID; // Susie's ID
   //console.log(" * * **********in chore.js * * **********");
 
@@ -33,12 +33,11 @@ $(document).ready(function() {
   function getChildId(cb) {
 
     // eventually will need function call here to set pId
-    //let pId = parentId;
+    let pId = parentId;
     //console.log("pId: " + pId);
-    let pId = null;
+    //let pId = null;
 
     if (typeof pId !== "object") {
-
       $.get(`/api/child/${pId}`)
         .then(function (user) {
           //user = user[0];
