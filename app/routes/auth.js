@@ -76,7 +76,7 @@ module.exports = function (app, passport) {
             if (req.user && req.user.group === group)
                 next();
             else
-                res.send(401, 'Unauthorized');
+                res.render('noPeaking'  );
         };
     };
 }
