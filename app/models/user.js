@@ -55,7 +55,8 @@ module.exports = (sequelize, DataTypes) => {
 
 
         pointsEarned: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
+            defaultValue: 0
         }
 
     },

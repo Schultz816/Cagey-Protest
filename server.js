@@ -58,15 +58,68 @@ app.set('view engine', 'handlebars');
 require('./app/routes/auth.js')(app, passport);
 require('./app/config/passport/passport.js')(passport, db.user);
 require("./app/routes/reward-api-routes.js")(app);
+require("./app/routes/api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
-db.sequelize.sync({}).then(function () {
+db.sequelize.sync({force: true}).then(function () {
 
     console.log('Nice! Database looks fine')
 
     app.listen(PORT, function () {
         console.log("App listening on PORT " + PORT);
     });
+
+
+  db.user.create({
+    parent_id: null,
+    firstname: "Pam",
+    username: "bossmom1",
+    email: "pam@aol.com",
+    password: "test",
+    pointsEarned: null,
+  });
+
+  db.user.create({
+    parentId: 1,
+    firstname: "Susie",
+    username: "lilsuze",
+    email: "suze@aol.com",
+    password: "test",
+    pointsEarned: 750,
+  });
+
+  // creating 3 chores for susie
+
+  db.chores.create({
+    name: "dishes",
+    pointsWorth: 150,
+    userId: 2
+  });
+
+  db.chores.create({
+    name: "laundry",
+    pointsWorth: 250,
+    userId: 2
+  });
+
+  db.chores.create({
+    name: "trash",
+    pointsWorth: 50,
+    userId: 2
+  });
+
+  db.rewards.create({
+    name: "movie ticket",
+    redeemAmount: "200",
+    userId: 2
+  });
+
+  db.rewards.create({
+    name: "pool party",
+    redeemAmount: "500",
+    userId: 2
+  });
+
 
 }).catch(function (err) {
 

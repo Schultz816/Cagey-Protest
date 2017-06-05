@@ -25,6 +25,7 @@ module.exports = function (app, passport) {
     app.get('/signup', authController.signup);
     //sign up ADMIN POST
     app.post('/signup', passport.authenticate('local-signup', {
+
             successRedirect: '/dashboard',
             failureRedirect: '/signup'
         }
@@ -47,13 +48,13 @@ module.exports = function (app, passport) {
     ));
     //add rewards GET
     app.get('/reward',
-        isLoggedIn,
-        needsGroup('admin'),
+        //isLoggedIn,
+        //needsGroup('admin'),
         authController.reward);
     //add chores GET
     app.get('/chore',
-        isLoggedIn,
-        needsGroup('admin'),
+        //isLoggedIn,
+        //needsGroup('admin'),
         authController.chore);
     //ADMIN dashboard GET
     app.get('/dashboard',
