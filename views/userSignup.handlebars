@@ -10,17 +10,17 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/dashboard">Tasko</a>
+            <a class="navbar-brand" href="/dashboard">tasko</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/userSignup">ADD CHILD</a></li>
-                <li><a href="/chore">ADD CHORE</a></li>
-                <li><a href="/reward">ADD REWARD</a></li>
-                <li><a href="/profile">CHILD PROFILE</a></li>
-                <li><a href="/logout">LOGOUT</a></li>
+                <li><a href="/userSignup">children</a></li>
+                <li><a href="/chore">chores</a></li>
+                <li><a href="/reward">rewards</a></li>
+                <li><a href="/profile">profile</a></li>
+                <li><a href="/logout">logout</a></li>
 
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
@@ -37,14 +37,126 @@
     </div><!-- /.container-fluid -->
 </nav> <!-- ======= NAVIGATION BAR ENDS =======  -->
 
-<form id="signup" name="signup" method="post" action="/userSignup">
-    <label for="email">Email Address</label>
-    <input class="text" name="email" type="email" />
-    <label for="firstname">Firstname</label>
-    <input name="firstname" type="text" />
-    <label for="lastname">Lastname</label>
-    <input name="lastname" type="text" />
-    <label for="password">Password</label>
-    <input name="password" type="password" />
-    <input class="btn" type="submit" value="Sign Up" />
-</form>
+<div class="jumbotron text-center">
+    <h1 id="tasko-title">tasko</h1>
+
+</div>
+
+
+
+
+
+<title>TASKO | SignIn</title>
+<div class="text-center">
+    <form id="signup" name="signup" method="post" action="/userSignup">
+        <h2>add your child</h2>
+        <label for="email">Email Address</label>
+        <input class="text" name="email" type="email" />
+        <label for="firstname">Firstname</label>
+        <input name="firstname" type="text" />
+        <label for="lastname">Lastname</label>
+        <input name="lastname" type="text" />
+        <label for="password">Password</label>
+        <input name="password" type="password" />
+        <input class="btn btn-danger btn-md" type="submit" value="Sign Up" />
+    </form>
+    <br>
+</div>
+
+<div class="fh5co-loader"></div>
+
+
+<aside id="fh5co-hero">
+    <div class="flexslider">
+        <ul class="slides">
+            <li style="background-image: url(images/vacuum.jpg);">
+                <div class="overlay-gradient"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center slider-text">
+                            <div class="slider-text-inner">
+                                <h1>Have a place for everything and keep the thing somewhere else; this is not a piece of advice, it is merely a custom. <br>—Mark Twain</h1>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li style="background-image: url(images/dustpan.jpg);">
+                <div class="overlay-gradient"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center slider-text">
+                            <div class="slider-text-inner">
+                                <h1>I hate housework. You make the beds, you wash the dishes and six months later you have to start all over again. <br>—Joan Rivers</h1>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li style="background-image: url(images/garden.jpg);">
+                <div class="overlay-gradient"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 col-md-offset-2 text-center slider-text">
+                            <div class="slider-text-inner">
+                                <h1>A bright person can always think of something better to do than housework. <br>—Ruby Lou Barnhill</h1>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</aside>
+
+<div class="gototop js-top">
+    <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+</div>
+
+<!-- jQuery -->
+<script src="js/edu/jquery.min.js"></script>
+<!-- jQuery Easing -->
+<script src="js/edu/jquery.easing.1.3.js"></script>
+<!-- Bootstrap -->
+<script src="js/edu/bootstrap.min.js"></script>
+<!-- Waypoints -->
+<script src="js/edu/jquery.waypoints.min.js"></script>
+<!-- Stellar Parallax -->
+<script src="js/edu/jquery.stellar.min.js"></script>
+<!-- Carousel -->
+<script src="js/edu/owl.carousel.min.js"></script>
+<!-- Flexslider -->
+<script src="js/edu/jquery.flexslider-min.js"></script>
+<!-- countTo -->
+<script src="js/edu/jquery.countTo.js"></script>
+<!-- Magnific Popup -->
+<script src="js/edu/jquery.magnific-popup.min.js"></script>
+<script src="js/edu/magnific-popup-options.js"></script>
+<!-- Count Down -->
+<script src="js/edu/simplyCountdown.js"></script>
+<!-- Main -->
+<script src="js/edu/main.js"></script>
+<script>
+    var d = new Date(new Date().getTime() + 1000 * 120 * 120 * 2000);
+
+    // default example
+    simplyCountdown('.simply-countdown-one', {
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate()
+    });
+
+    //jQuery example
+    $('#simply-countdown-losange').simplyCountdown({
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate(),
+        enableUtc: false
+    });
+</script>
